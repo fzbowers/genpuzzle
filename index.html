@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-brand">GenPuzzle</div>
+        <nav class="navbar-buttons">
+            <button id="show-image-btn">Show Image</button>
+            <button id="upload-image-btn">Upload Image</button>
+            <button id="generate-image-btn">Generate Image</button>
+            <button id="settings-btn">Settings</button>
+        </nav>
+        <!-- Hamburger Menu for smaller screens -->
+        <button class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+    </header>
+
+    <!-- Game Area -->
+    <p id="no-image-message">No image has been added yet. Please load or generate an image to start playing.</p>
+    <canvas class="puzzle-canvas"></canvas>
+
+
+    <!-- Generate Image Modal -->
+    <div id="generate-image-modal" class="modal">
+        <div class="modal-content" id="static-modal">
+            <span id="close-generate-modal" class="close">&times;</span>
+            <h2>Generate Image</h2>
+            <form id="generate-image-form">
+                <label for="image-description">Enter a description for your image:</label>
+                <input type="text" id="image-description" maxlength=10000 placeholder="e.g., A cat riding a skateboard" required>
+                <label for="style-select">Select an image style (optional):</label>
+                <select id="style-select">
+                    <option value="">None</option>
+                    <!-- Style options will be populated in script.js -->
+                </select>
+                <div class="submit-modal"> 
+                    <button type="submit" id="submit-generation">
+                        <span id="generate-spinner"></span>
+                        <span id="generate-text">Generate</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-settings-modal" class="close">&times;</span>
+            <h2>Settings</h2>
+            <form id="settings-form">
+                <label for="dimensions">
+                    Dimensions:
+                    <input type="number" id="rows-input" min="2" max="20" value="4" required>
+                    x
+                    <input type="number" id="columns-input" min="2" max="20" value="4" required>
+                </label>
+
+                <div id="help-section">
+                    <h3>Help</h3>
+                    <p id="help-description">
+                        Welcome to <strong>GenPuzzle</strong>! Here's how to get started:
+                        <ul>
+                            <li><strong>Upload Image:</strong> Use the "Upload Image" button to select an image from your personal files.</li>
+                            <li><strong>Generate Image:</strong> Use the "Generate Image" button to create a unique image. 
+                                Enter a description and optionally choose a style. This feature uses Stability AI's text-to-image model.</li>
+                            <li><strong>Save Your Image:</strong> If you love the generated image, right-click and save it to keep a copy.</li>
+                            <li><strong>Set Puzzle Difficulty:</strong> Adjust the puzzle dimensions (up to 20x20) to make it easier or harder.</li>
+                            <li><strong>Solve the Puzzle:</strong> Drag and drop the pieces to their correct positions to complete the puzzle.</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="submit-modal"> 
+                    <button type="submit" id="save-settings">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Show Image Modal -->
+    <div id="show-image-modal" class="image-modal">
+        <span id="close-image-modal" class="close">&times;</span>
+        <img id="image-display" src="" alt="Puzzle Image">
+        <div class="resizing"></div>
+    </div>
+
+    <!-- Win Message Modal -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-win-modal" class="close">&times;</span>
+            <h2>You've Won!</h2>
+            <div id="win-message">Congratulations! You solved the puzzle!</div>
+            <div class="submit-modal"> 
+                <button id="play-again-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
+
+
+
