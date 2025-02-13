@@ -2,6 +2,9 @@
 
 This project enables users to create and solve custom jigsaw puzzles by generating images using **Stability AI's Stable Image Core model**. Users can either upload their own image or provide a text description to generate an AI-created image, which is then converted into a puzzle.
 
+## Live Demo
+You can try out the live version of the project hosted on Github Pages: [GenPuzzle](https://fzbowers.github.io/genpuzzle/)
+
 ## Features
 - **Image Upload**: Convert any uploaded image into a jigsaw puzzle.
 - **AI Image Generation**: Generate images from text prompts using Stability AI.
