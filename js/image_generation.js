@@ -2,7 +2,7 @@
 // Function to handle image generation
 export async function generateImage(prompt, style = "") {
     try {
-        const response = await fetch('http://localhost:5000/generate-image', {
+        const response = await fetch('https://genpuzzle-backend-production.up.railway.app/generate-image', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
